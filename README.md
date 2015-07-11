@@ -50,8 +50,6 @@ for (let [zipcode, info] of zipcodes) {
        { number: 173, name: 'Lyngby-Taarbæk Kommune' },
        { number: 159, name: 'Gladsaxe Kommune' },
        { number: 157, name: 'Gentofte Kommune' } ],
-    // Possible values are ['Denmark', 'Greenland', 'Faroe Islands']
-    country: 'Denmark'
   };
 }
 ```

@@ -58,6 +58,9 @@ async.map(
       const zipcode = parseInt(row[0], 10);
       if (Number.isNaN(zipcode)) throw new Error('malformated zipcode');
 
+      // Do only take those from denmark, otherwise they are hard to cross reference
+      if (parseInt(row[5], 10) !== 1) continue;
+
       zipcodes.set(zipcode, {
         zipcode: zipcode,
         city: row[1] || null,
@@ -65,8 +68,7 @@ async.map(
         firm: row[3] || null,
         province: row[4] === 'True',
         region: null,
-        communes: [],
-        country: countrycodes[parseInt(row[5], 10)]
+        communes: []
       });
     }
 
@@ -83,7 +85,6 @@ async.map(
         'number': parseInt(row[2], 10),
         'name': row[3]
       });
-      details.city = row[5];
     }
 
     fs.writeFileSync(
