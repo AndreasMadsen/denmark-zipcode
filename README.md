@@ -13,12 +13,6 @@ npm install denmark-zipcode
 On installation this module will download two excel files and compile a
 json file, containing cross referenced information.
 
-The source is postdanmark:
-
-* overview: http://www.postdanmark.dk/da/Privat/Kundeservice/postnummerkort/Sider/postnummerkort.aspx
-* zipcodes (full list): http://www.postdanmark.dk/da/Documents/Lister/postnummerfil-excel.xls
-* zipcodes by regions (incomplete): http://www.postdanmark.dk/da/Documents/Lister/regionsopdelt-postnummer-excel.xls
-
 Get the zipcodes by:
 
 ```javascript
@@ -53,6 +47,16 @@ for (let [zipcode, info] of zipcodes) {
   };
 }
 ```
+
+## Source
+
+The source is postdanmark:
+
+* overview: http://www.postdanmark.dk/da/Privat/Kundeservice/postnummerkort/Sider/postnummerkort.aspx
+* zipcodes (full list): http://www.postdanmark.dk/da/Documents/Lister/postnummerfil-excel.xls
+* zipcodes by regions (incomplete): http://www.postdanmark.dk/da/Documents/Lister/regionsopdelt-postnummer-excel.xls
+
+An alternative source is: http://dawa.aws.dk/postnummerdok
 
 ##License
 
