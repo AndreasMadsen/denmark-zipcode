@@ -1,7 +1,7 @@
 {
   "name": "denmark-zipcode",
   "description": "A list of zipcodes in denmark and associated information",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "scripts": {
     "install": "node --strong_mode install.js",

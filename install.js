@@ -23,8 +23,6 @@ req.on('data', function (item) {
 });
 
 req.on('end', function () {
-  console.log(zipcodes);
-
   fs.writeFileSync(
     path.resolve(__dirname, 'data.json'),
     JSON.stringify(zipcodes)
