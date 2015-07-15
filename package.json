@@ -1,7 +1,7 @@
 {
   "name": "denmark-zipcode",
   "description": "A list of zipcodes in denmark and associated information",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "scripts": {
     "install": "node --strong_mode install.js",
@@ -17,11 +17,7 @@
     "zipcode"
   ],
   "dependencies": {
-    "async": "1.3.x",
-    "endpoint": "0.4.3",
-    "startpoint": "0.3.x",
-    "xlsx": "0.8.x",
-    "rfc-csv": "0.2.x"
+    "denmark-dawa": "1.0.x"
   },
   "devDependencies": {
     "tap": "1.3.x"

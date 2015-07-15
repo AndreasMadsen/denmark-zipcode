@@ -10,17 +10,12 @@ npm install denmark-zipcode
 
 ## Documentation
 
-On installation this module will download two excel files and compile a
-json file, containing cross referenced information.
-
-Get the zipcodes by:
-
 ```javascript
 zipcodes = require('denmark-zipcode')
 ```
 
-This is a `Map` object, with zipcodes as keys and associated information
-as values.
+On installation this module will download all zipcodes and associated information.
+When required it reconstructs a `Map` object, with zipcodes as keys and associated information as values.
 
 ```javascript
 for (let [zipcode, info] of zipcodes) {
@@ -30,33 +25,28 @@ for (let [zipcode, info] of zipcodes) {
   // info is an object
   info = {
     zipcode: 2800,
-    city: 'Kongens Lyngby',
-    // This can be a string, if information was provided
-    street: null,
-    // This can be a string, if information was provided
-    firm: null,
-    province: true,
-    // This can be null, if no cross referenced information was found
-    region: { number: 1084, name: 'Region Hovedstaden' },
-    // This can be an empty array, if no cross referenced information was found
-    communes:
-     [ { number: 230, name: 'Rudersdal Kommune' },
-       { number: 173, name: 'Lyngby-Taarbæk Kommune' },
-       { number: 159, name: 'Gladsaxe Kommune' },
-       { number: 157, name: 'Gentofte Kommune' } ],
+    city: 'Kgs. Lyngby',
+    province: null,
+    communes: [
+      { id: '0157', name: 'Gentofte' },
+      { id: '0159', name: 'Gladsaxe' },
+      { id: '0173', name: 'Lyngby-Taarbæk' },
+      { id: '0230', name: 'Rudersdal' }
+    ]
   };
 }
 ```
 
 ## Source
 
-The source is postdanmark:
+The source is: http://dawa.aws.dk/postnummerdok
+
+An alternative source may be postdanmark, which was used in a previouse version:
 
 * overview: http://www.postdanmark.dk/da/Privat/Kundeservice/postnummerkort/Sider/postnummerkort.aspx
 * zipcodes (full list): http://www.postdanmark.dk/da/Documents/Lister/postnummerfil-excel.xls
 * zipcodes by regions (incomplete): http://www.postdanmark.dk/da/Documents/Lister/regionsopdelt-postnummer-excel.xls
 
-An alternative source is: http://dawa.aws.dk/postnummerdok
 
 ##License
 
