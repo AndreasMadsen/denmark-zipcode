@@ -1,4 +1,4 @@
-#denmark-zipcode [![Build Status](https://travis-ci.org/AndreasMadsen/clarify.svg?branch=master)](https://travis-ci.org/AndreasMadsen/clarify)
+#denmark-zipcode [![Build Status](https://travis-ci.org/denmark-io/denmark-zipcode.svg?branch=master)](https://travis-ci.org/denmark-io/denmark-zipcode)
 
 > A list of zipcodes in denmark and associated information
 
