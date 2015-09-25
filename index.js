@@ -6,9 +6,7 @@ const mappoint = require('mappoint');
 const DAWA = require('denmark-dawa');
 
 module.exports = function () {
-
-  const req = new DAWA('/postnumre', { stormodtagere: true });
-  return req.pipe(mappoint({objectMode: true}, function (item, done) {
+  const ret = mappoint({objectMode: true}, function (item, done) {
     done(null, {
       zipcode: parseInt(item.nr, 10),
       city: item.navn,
@@ -19,5 +17,11 @@ module.exports = function () {
         return { id: commune.kode, name: commune.navn };
       })
     });
-  }));
+  });
+
+  new DAWA('/postnumre', { stormodtagere: true })
+    .on('error', ret.emit.bind(ret, 'error'))
+    .pipe(ret);
+
+  return ret;
 }
