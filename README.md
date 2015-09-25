@@ -1,4 +1,4 @@
-#denmark-zipcode
+#denmark-zipcode [![Build Status](https://travis-ci.org/AndreasMadsen/clarify.svg?branch=master)](https://travis-ci.org/AndreasMadsen/clarify)
 
 > A list of zipcodes in denmark and associated information
 
@@ -11,19 +11,11 @@ npm install denmark-zipcode
 ## Documentation
 
 ```javascript
-zipcodes = require('denmark-zipcode')
-```
+const zipcodes = require('denmark-zipcode');
 
-On installation this module will download all zipcodes and associated information.
-When required it reconstructs a `Map` object, with zipcodes as keys and associated information as values.
-
-```javascript
-for (let [zipcode, info] of zipcodes) {
-  // zipcode is a number
-  zipcode = 2800;
-
-  // info is an object
-  info = {
+// zipcodes() returns an object stream
+zipcodes().once('data', function (data) {
+  data = {
     zipcode: 2800,
     city: 'Kgs. Lyngby',
     province: null,
@@ -34,7 +26,7 @@ for (let [zipcode, info] of zipcodes) {
       { id: '0230', name: 'Rudersdal' }
     ]
   };
-}
+});
 ```
 
 ## Source
@@ -46,7 +38,6 @@ An alternative source may be postdanmark, which was used in a previouse version:
 * overview: http://www.postdanmark.dk/da/Privat/Kundeservice/postnummerkort/Sider/postnummerkort.aspx
 * zipcodes (full list): http://www.postdanmark.dk/da/Documents/Lister/postnummerfil-excel.xls
 * zipcodes by regions (incomplete): http://www.postdanmark.dk/da/Documents/Lister/regionsopdelt-postnummer-excel.xls
-
 
 ##License
 

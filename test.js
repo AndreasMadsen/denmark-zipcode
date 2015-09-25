@@ -4,17 +4,18 @@
 
 const test = require('tap').test;
 const zipcodes = require('./index.js');
+const endpoint = require('endpoint');
 
-test('all keys are numbers', function (t) {
-  for (const key of zipcodes.keys()) {
-    t.ok(typeof key === 'number', 'is number');
-  }
-  t.end();
-});
+test('all keys are numbers and values are objects', function (t) {
+  zipcodes().pipe(endpoint({objectMode: true}, function (err, items) {
+    t.ifError(err);
+    t.ok(items.length > 0, 'there are items');
 
-test('all values are objects', function (t) {
-  for (const obj of zipcodes.values()) {
-    t.ok(typeof obj === 'object' && obj !== null, 'is object');
-  }
-  t.end();
+    for (const item of items) {
+      t.ok(typeof item.zipcode === 'number', 'zipcode is number');
+      t.ok(typeof item === 'object' && item !== null, 'item is object');
+    }
+
+    t.end();
+  }));
 });
